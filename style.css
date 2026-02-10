@@ -1,189 +1,216 @@
-/* --- Root Variables --- */
+/* Import Font yang terlihat manis dan elegan */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&family=Pacifico&display=swap');
+
 :root {
-    /* Mendefinisikan warna agar mudah dipanggil dan konsisten */
-    --primary-brown: #a67c52;    /* Coklat utama */
-    --soft-brown: #d7c0ae;       /* Coklat muda pastel */
-    --light-cream: #f8f5f1;      /* Krem sangat muda untuk background */
-    --dark-text: #433422;        /* Warna teks gelap agar mudah dibaca */
-    --white: #ffffff;
-    --transition: all 0.3s ease; /* Kecepatan animasi standar */
+    --dark-choco: #3d1f16;
+    --milk-choco: #6f4e37;
+    --caramel: #a67c52;
+    --vanilla: #f3e5ab;
+    --gold-candy: #ffd700;
+    --soft-cream: #fff9f0;
 }
 
-/* --- Global Reset --- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Menghitung padding dalam lebar elemen */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih modern */
-}
-
-html {
-    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--light-cream);
-    color: var(--dark-text);
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-cream);
+    color: var(--dark-choco);
     line-height: 1.6;
+    /* Background motif cokelat bar */
+    background-image: radial-gradient(var(--vanilla) 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
-/* --- Navigasi --- */
+/* --- Navigasi Istana --- */
 header {
-    background-color: var(--white);
-    padding: 1rem 10%;
-    position: fixed; /* Navigasi tetap di atas saat scroll */
-    width: 100%;
+    background-color: var(--dark-choco);
+    padding: 1rem 0;
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Bayangan halus di bawah nav */
+    border-bottom: 5px solid var(--caramel);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 nav {
     display: flex;
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    justify-content: space-around;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-brown);
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: var(--vanilla);
 }
 
 .logo span {
-    color: var(--soft-brown);
+    color: var(--gold-candy);
 }
 
 nav ul {
     display: flex;
-    list-style: none; /* Menghilangkan titik list */
-}
-
-nav ul li {
-    margin-left: 2rem;
+    list-style: none;
 }
 
 nav ul li a {
+    color: var(--soft-cream);
     text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 500;
-    transition: var(--transition);
+    margin: 0 15px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: var(--primary-brown); /* Berubah warna saat kursor menempel */
+    color: var(--gold-candy);
+    text-shadow: 0 0 8px var(--gold-candy);
 }
 
-/* --- Hero Section --- */
+/* Tambahkan ini di bagian paling atas atau dalam selector body */
+body {
+    /* Gunakan gambar PNG transparan ukuran kecil (32x32 pixel). 
+       'pointer' adalah cadangan jika gambar gagal dimuat.
+    */
+    cursor: url('Desain_tanpa_judul-removebg-preview.png'), auto;
+}
+
+/* Kursor berubah saat diarahkan ke tombol atau link */
+a, button, .proyek-card {
+    cursor: url('Desain_tanpa_judul-removebg-preview.png'), pointer;
+}
+
+/* --- Hero Section (Gerbang Istana Cokelat) --- */
 .hero {
-    height: 100vh; /* Memenuhi satu layar laptop */
+    height: 90vh;
+    /* Menggunakan gambar istana cokelat sebagai background */
+    background: linear-gradient(rgba(61, 31, 22, 0.6), rgba(61, 31, 22, 0.6)), 
+                url('http://googleusercontent.com/image_collection/image_retrieval/1759511024770718946_0') center/cover no-repeat;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Gradasi halus */
-    padding-top: 80px; /* Jarak agar tidak tertutup navigasi fixed */
+    text-align: center;
+    color: var(--vanilla);
+    border-bottom: 10px solid var(--milk-choco);
+    /* Efek tambahan agar gambar terlihat menyatu */
+    background-attachment: fixed;
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    color: var(--primary-brown);
-    margin-bottom: 1rem;
-}
-
-.btn-hero {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.8rem 2rem;
-    background-color: var(--primary-brown);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 30px; /* Membuat tombol lonjong/rounded */
-    transition: var(--transition);
-}
-
-.btn-hero:hover {
-    background-color: var(--dark-text);
-    transform: translateY(-3px); /* Tombol sedikit naik saat di-hover */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    margin: 10px 0;
+    text-shadow: 4px 4px 0px var(--milk-choco);
 }
 
 .hero img {
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid var(--gold-candy);
+    margin-top: 20px;
     object-fit: cover;
-    border-radius: 50%; /* Membuat foto menjadi bulat */
-    border: 10px solid var(--soft-brown);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-hero {
+    background-color: var(--gold-candy);
+    color: var(--dark-choco);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 0px #b8860b;
+}
+
+.btn-hero:hover {
+    transform: scale(1.1);
+    background-color: var(--vanilla);
+}
+
+/* --- Section General --- */
+.container {
+    padding: 80px 10% ;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--dark-choco);
+    position: relative;
+}
+
+h2::after {
+    content: '🍫';
+    display: block;
+    font-size: 1.5rem;
 }
 
 /* --- About Section --- */
-.container {
-    padding: 80px 10%;
-    text-align: center;
-}
-
 .about {
-    background-color: var(--white);
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(61, 31, 22, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 2px solid var(--caramel);
 }
 
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--primary-brown);
-}
-
-.about p {
-    max-width: 800px;
-    margin: 0 auto; /* Menengahkan paragraf */
-    font-size: 1.1rem;
-}
-
-/* --- Proyek (Grid System) --- */
-.bg-light {
-    background-color: var(--light-cream);
-}
-
+/* --- Proyek Grid (Kotak Cokelat) --- */
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid otomatis sejajar */
-    gap: 20px; /* Jarak antar kartu */
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .proyek-card {
-    background: var(--white);
-    text-decoration: none;
-    color: inherit;
+    background: var(--milk-choco);
     border-radius: 15px;
-    overflow: hidden; /* Agar gambar tidak keluar dari radius border */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--vanilla);
+    transition: 0.3s;
+    border: 4px solid var(--dark-choco);
 }
 
 .proyek-card:hover {
-    transform: scale(1.03); /* Sedikit membesar saat disentuh */
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .proyek-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    filter: sepia(30%);
 }
 
 .proyek-info {
-    padding: 1.5rem;
-}
-
-.proyek-info h3 {
-    color: var(--primary-brown);
-    margin-bottom: 0.5rem;
+    padding: 20px;
+    text-align: center;
 }
 
 /* --- Medsos --- */
 .medsos-list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
-    flex-wrap: wrap; /* Supaya rapi jika layar kecil */
 }
 
 .medsos-item {
@@ -191,44 +218,29 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--dark-text);
-    transition: var(--transition);
+    color: var(--dark-choco);
+    font-weight: bold;
 }
 
 .medsos-item img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+    width: 60px;
+    transition: 0.3s;
+    background: var(--vanilla);
+    padding: 10px;
+    border-radius: 50%;
 }
 
-.medsos-item:hover {
-    color: var(--primary-brown);
-    transform: translateY(-5px);
+.medsos-item:hover img {
+    transform: bounce; /* Efek membal */
+    background: var(--gold-candy);
 }
 
 /* --- Footer --- */
 footer {
-    background-color: var(--dark-text);
-    color: var(--soft-brown);
+    background-color: var(--dark-choco);
+    color: var(--vanilla);
     text-align: center;
-    padding: 2rem;
+    padding: 40px 0;
     margin-top: 50px;
-}
-
-/* --- Responsive (Layar HP) --- */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        height: auto;
-        padding-bottom: 50px;
-    }
-    .hero img {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 20px;
-    }
-    nav ul {
-        display: none; /* Sederhananya kita sembunyikan menu di HP */
-    }
+    border-top: 8px solid var(--gold-candy);
 }
